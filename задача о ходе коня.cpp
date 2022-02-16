@@ -23,14 +23,14 @@ bool FindMoves(int x, int y, int n)
     if (n > m * m - 1)//если обошли уже всю доску
         return true;
     //проверки все 8 ходов коня
-    if (Check(x - 1, y - 2) && Move(x - 1, y - 2) && FindMoves(x - 1, y - 2, n + 1)) return true;
-    if (Check(x - 2, y - 1) && Move(x - 2, y - 1) && FindMoves(x - 2, y - 1, n + 1)) return true;
-    if (Check(x - 2, y + 1) && Move(x - 2, y + 1) && FindMoves(x - 2, y + 1, n + 1)) return true;
-    if (Check(x + 1, y - 2) && Move(x + 1, y - 2) && FindMoves(x + 1, y - 2, n + 1)) return true;
-    if (Check(x - 1, y + 2) && Move(x - 1, y + 2) && FindMoves(x - 1, y + 2, n + 1)) return true;
-    if (Check(x + 2, y - 1) && Move(x + 2, y - 1) && FindMoves(x + 2, y - 1, n + 1)) return true;
-    if (Check(x + 1, y + 2) && Move(x + 1, y + 2) && FindMoves(x + 1, y + 2, n + 1)) return true;
-    if (Check(x + 2, y + 1) && Move(x + 2, y + 1) && FindMoves(x + 2, y + 1, n + 1)) return true;
+    if ( Move(x - 1, y - 2) && FindMoves(x - 1, y - 2, n + 1)) return true;
+    if ( Move(x - 2, y - 1) && FindMoves(x - 2, y - 1, n + 1)) return true;
+    if ( Move(x - 2, y + 1) && FindMoves(x - 2, y + 1, n + 1)) return true;
+    if ( Move(x + 1, y - 2) && FindMoves(x + 1, y - 2, n + 1)) return true;
+    if ( Move(x - 1, y + 2) && FindMoves(x - 1, y + 2, n + 1)) return true;
+    if ( Move(x + 2, y - 1) && FindMoves(x + 2, y - 1, n + 1)) return true;
+    if ( Move(x + 1, y + 2) && FindMoves(x + 1, y + 2, n + 1)) return true;
+    if ( Move(x + 2, y + 1) && FindMoves(x + 2, y + 1, n + 1)) return true;
 
     //если не нашлось хода то шаг назад
     board[x][y] = 0; n--; return false;
@@ -46,7 +46,7 @@ int main()
     /////////////////////////////////
     int ii; int  jj;
     cout << "Введите x0  "; cin >> ii; cout << endl;
-    cout << "Введите y0  "; cin >> jj;
+    cout << "Введите y0  "; cin >> jj; cout << endl;
     if (Check(ii, jj))
     {
         if (FindMoves(ii, jj, 1))
@@ -59,5 +59,5 @@ int main()
             }
         }
     }
-    else cout << "invalid input";
+    else cout << "неверный ввод";
 }
